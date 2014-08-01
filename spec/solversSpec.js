@@ -1,6 +1,7 @@
 describe('solvers', function() {
   window.displayBoard = function() {};
 
+
   describe('findNRooksSolution()', function() {
 
     it('finds a valid solution for n of 1-8', function() {

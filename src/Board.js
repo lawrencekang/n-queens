@@ -25,6 +25,7 @@
     },
 
     togglePiece: function(rowIndex, colIndex) {
+
       this.get(rowIndex)[colIndex] = + !this.get(rowIndex)[colIndex];
       this.trigger('change');
     },
@@ -82,12 +83,12 @@
       var _board = this.rows();
       var _row = _board[rowIndex];
       var count = 0;
-      for (var i = 0; i < _row.length; i++) {
-        if (_row[i] === 1) {
+      for(var i = 0; i < _row.length; i++){
+        if(_row[i] === 1){
           count++;
         }
       }
-      if (count > 1) {
+      if(count > 1){
         return true;
       }
       return false; // fixme
@@ -100,7 +101,7 @@
       for(var i=0; i<_board.length; i++){
         result = this.hasRowConflictAt(i);
         // debugger;
-        if (result === true) {
+        if(result === true){
           return true;
         }
       }
@@ -108,9 +109,9 @@
 
       //iterate through the board
 
-        //pass in each row into hasRowConflictAt
-        //return result
-      return false; // fixme
+      //pass in each row into hasRowConflictAt
+      //return result
+      return false;
     },
 
 
@@ -133,9 +134,9 @@
         return true;
       }
       //iterate through the board to get each row, e.g. _board[i]
-        //within each row, check the first index (column) to see if value = 1
-          //if more than 1 (value = 1) exists in column, return true
-      return false; // fixme
+      //within each row, check the first index (column) to see if value = 1
+      //if more than 1 (value = 1) exists in column, return true
+      return false;
     },
 
     // test if any columns on this board contain conflicts
@@ -148,7 +149,7 @@
           return true;
         }
       }
-      return false; // fixme
+      return false;
     },
 
 
@@ -161,27 +162,27 @@
       //loop through the entire board
       var _board = this.rows();
       var counter = 0;
-      for (var i = 0; i < _board.length; i ++) {
+      for(var i = 0; i < _board.length; i ++){
         var _row = _board[i];
-        for (var j = 0; j < _row.length; j ++) {
+        for(var j = 0; j < _row.length; j ++){
           var majIndex = this._getFirstRowColumnIndexForMajorDiagonalOn(i, j);
           if(majIndex === majorDiagonalColumnIndexAtFirstRow) {
-            if (_row[j] === 1) {
+            if(_row[j] === 1){
               counter ++;
             }
           }
         }
       }
-      if (counter > 1) {
+      if(counter > 1){
         return true;
       }
       //check _getMajorDiagonalColumnIndexAtFirstRow for each position
-        //if _getMajorIndex matches targetIndex
-          //check if value at that location = 1
-          //if yes, counter ++
+      //if _getMajorIndex matches targetIndex
+      //check if value at that location = 1
+      //if yes, counter ++
       //if counter is > 1, return true
-        //else return false
-      return false; // fixme
+      //else return false
+      return false;
     },
 
     // test if any major diagonals on this board contain conflicts
@@ -201,7 +202,7 @@
       // run the majorConflictAt method -board to board
       // if true, return true
       // else return false
-      return false; // fixme
+      return false;
     },
 
 
@@ -215,16 +216,16 @@
       var counter = 0;
       var _board = this.rows();
       //iterate through each row
-      for (var i = 0; i < _board.length; i ++) {
+      for(var i = 0; i < _board.length; i ++){
         //within each row, iterate through the columns
         var _row = _board[i];
-        for (var j = 0; j < _row.length; j ++) {
+        for(var j = 0; j < _row.length; j ++){
           //pass in row and column to _getMinorIndex
           var minIndex = this._getFirstRowColumnIndexForMinorDiagonalOn(i, j);
           //compare to minorTargetIndex
-          if (minIndex === minorDiagonalColumnIndexAtFirstRow) {
+          if(minIndex === minorDiagonalColumnIndexAtFirstRow){
             //if current _getMinorIndex === minorTargetindex, then check if current value = 1
-            if (_row[j] === 1) {
+            if(_row[j] === 1){
               //if true, add to counter
               counter ++;
             }
@@ -232,10 +233,10 @@
         }
       }
       //if counter > 1 return true
-      if (counter > 1) {
+      if(counter > 1){
         return true;
       }
-      return false; // fixme
+      return false;
     },
 
     // test if any minor diagonals on this board contain conflicts
@@ -244,13 +245,13 @@
       var length = _board.length - 1;
       var result = false;
       //iterating through minor diagonals
-      for (var i = 0; i <= 2 * length; i ++) {
+      for(var i = 0; i <= 2 * length; i ++){
         result = this.hasMinorDiagonalConflictAt(i);
-        if (result === true){
+        if(result === true){
           return result;
         }
       }
-      return false; // fixme
+      return false;
     }
 
     /*--------------------  End of Helper Functions  ---------------------*/
